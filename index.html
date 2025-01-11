@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Navigation infos -->
-                <ul class="flex justify-center items-center gap-8">
+                <ul class="hidden md:flex lg:flex justify-center items-center gap-8">
                     <li>Home</li>
                     <li>Shop</li>
                     <li>Contact</li>
@@ -33,24 +33,33 @@
 
                 <!-- Profile info -->
                 <button
-                    class="px-3 py-2 rounded-full border border-[#0E7A81] text-[#0E7A81] hover:bg-[#0E7A81] duration-700 hover:scale-110 hover:text-white">
+                    class="hidden md:block lg:block px-3 py-2 rounded-full border border-[#0E7A81] text-[#0E7A81] hover:bg-[#0E7A81] duration-700 hover:scale-110 hover:text-white">
                     <i class="fa-regular fa-user"></i>
+                </button>
+                <!-- for small device -->
+                <button
+                    class="block md:hidden lg:hidden px-3 py-2 rounded-full border border-[#0E7A81] text-[#0E7A81] hover:bg-[#0E7A81] duration-700 hover:scale-110 hover:text-white">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </nav>
         <!-- Banner section -->
-        <section>
+        <section class="mb-28">
             <!-- Text and button Container -->
             <div class="text-center space-y-6 mb-8">
                 <!-- Mini title -->
                 <h3 class="text-[#13131399] font-medium">Bringing Families Together ❤️‍🔥</h3>
                 <!-- Title -->
-                <h1 class="text-6xl font-semibold">Your Path to Adoption <br> Starts Here</h1>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black">Your Path to Adoption <br> Starts Here</h1>
                 <!-- Description -->
-                <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable content of a page when looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <p class="text-[#131313]">It is a long established fact that a reader will be distracted by the readable
+                    content of a page when looking <br> at its layout. The point of using Lorem Ipsum is that it has a.
+                </p>
 
                 <!-- Btn -->
-                 <button class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">View More</button>
+                <button
+                    class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">View
+                    More</button>
             </div>
             <!-- banner img container -->
             <div class="flex justify-center items-center">
@@ -60,13 +69,83 @@
     </header>
 
     <!-- Main -->
-    <main>
+    <main class="max-w-[1320px] w-[90%] mx-auto ">
+        <!-- Adopt your best friend Section-->
+        <section>
+            <!-- Heading and title Container-->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl mb-6 font-black">Adopt Your Best Friend</h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a <br> page
+                    when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+        </section>
+
+        <!-- Tags section -->
+        <section class="mb-8">
+            <!-- Container -->
+            <div id="category-container" class="flex flex-col md:flex-row lg:flex-row justify-between gap-4">
+                <!-- Dogs -->
+
+                <!-- Cats -->
+
+                <!-- Rabbits -->
+
+                <!-- Birds -->
+            </div>
+        </section>
+
+        <!-- Filter button and dynamic card section -->
+        <section class="mb-10">
+            <!-- Filter button and title -->
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-2xl font-black">Best Deal Foy you</h1>
+                <button
+                    class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">Sort
+                    By Price</button>
+            </div>
+
+            <!-- Dynamic card container -->
+            <div class="flex gap-6">
+                <!-- Left side container -->
+                <div class="w-[80%] h-[500px] overflow-y-scroll border rounded-2xl border-gray-200 p-2">
+                    <!-- Loader -->
+                    <div id="loader" class="hidden text-center">
+                        <span class="loading loading-bars loading-lg"></span>
+                    </div>
+
+                    <!-- Parent Container (For both error and cards) -->
+                    <div id="error-card-parent-container">
+                        <!-- Error page will be here -->
+                        <div id="error-div" class="hidden text-center w-full pt-20 object-cover">
+                            <img src="./images/error.webp" class="mx-auto" alt="">
+                            <h1 class="text-3xl font-bold mb-2">No information Available</h1>
+                            <p class="text-lg font-medium">Checkout other categories</p>
+                        </div>
+
+                        <!-- Cards Container -->
+                        <div id="pet-card-container" class="grid grid-cols-3 gap-6">
+                            <!-- Cards -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side container -->
+                <div class="border border-red-600 w-[20%] h-[500px] overflow-y-scroll">
+                    h2
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
 
     </footer>
+
+
+    <!-- JS functions -->
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
