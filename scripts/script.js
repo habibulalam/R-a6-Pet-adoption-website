@@ -89,7 +89,7 @@ const renderPetCategory = () => {
     // console.log(petCategory);
 
     const finalDiv = petCategory.map(singleCategory => {
-        return `<div onclick="getCLickedCategoryData('${singleCategory.category}')" id="dog-tag" class="cursor-pointer flex items-center justify-center gap-4 border rounded-2xl py-6 px-10">
+        return `<div onclick="getCLickedCategoryData('${singleCategory.category}') , functionForActiveCategory(this)"  class="category-cards cursor-pointer flex items-center justify-center gap-4 border rounded-2xl py-6 px-10 duration-700">
                     <img src=${singleCategory.category_icon} alt="">
                     <h1 class="text-2xl font-bold">${singleCategory.category}</h1>
                  </div>`
@@ -103,7 +103,7 @@ const renderPetCategory = () => {
 const renderPetData = () => {
     // console.log(petData);
 
-    if (petData.length<1) {
+    if (petData.length < 1) {
         console.log("petdata nai");
         const finalDiv = `<div id="error-div" class="flex flex-col justify-center items-center w-full pt-20 object-cover">
                              <img src="./images/error.webp" alt="">
@@ -156,11 +156,11 @@ const renderPetData = () => {
 
     const petDataContainer = document.getElementById("error-card-parent-container")
     // console.log(object);
-        const finalAllCardParentDiv = `<div id="pet-card-container" class="grid grid-cols-3 gap-6">
+    const finalAllCardParentDiv = `<div id="pet-card-container" class="grid grid-cols-3 gap-6">
                                             ${finalAllCartDiv.join('')}
                                         </div>`
 
-        petDataContainer.innerHTML = finalAllCardParentDiv;
+    petDataContainer.innerHTML = finalAllCardParentDiv;
 }
 
 const getCLickedCategoryData = async (category_name) => {
@@ -193,7 +193,7 @@ const getCLickedCategoryData = async (category_name) => {
 };
 
 
-const renderLikedPetImage = (imgUrl) =>{
+const renderLikedPetImage = (imgUrl) => {
 
     const finalDiv = `<div class="flex justify-center items-center p-1 border border-gray-400 rounded-2xl h-fit">
                         <img src="${imgUrl}" class="rounded-xl" alt="">
@@ -203,3 +203,22 @@ const renderLikedPetImage = (imgUrl) =>{
     likedParentContainer.innerHTML += finalDiv;
 }
 
+
+const functionForActiveCategory = (e) => {
+    const categoryList = document.getElementsByClassName('category-cards');
+    console.log(e)
+    
+
+    // Convert HTMLCollection to an array using Array.from()
+    Array.from(categoryList).forEach(card => {
+        // Remove 3 specific classes from each card
+        // console.log(card)
+        // card.classList('class1', 'class2', 'class3');
+        card.style.removeProperty('border-radius')
+        card.style.removeProperty('background-color')
+    });
+
+    e.style.backgroundColor="green";
+    e.style.borderRadius="60px";
+    
+}
