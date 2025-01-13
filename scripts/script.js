@@ -67,7 +67,7 @@ const getAllPetData = async () => {
         setTimeout(() => {
             petData = data.pets;
 
-            // console.log('Fetched Data:', petData);
+            console.log('Fetched Data:', petData);
 
             // Hide loader
             loading = false;
@@ -145,7 +145,7 @@ const renderPetData = () => {
                              <hr class="mb-4">
                              <!-- Buttons (adopt , details, like) -->
                               <div class="flex justify-between items-center">
-                                 <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
+                                 <button onclick="renderLikedPetImage('${singleData.image}')" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
                                  <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Adopt</button>
                                  <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Details</button>
                               </div>
@@ -191,4 +191,15 @@ const getCLickedCategoryData = async (category_name) => {
         console.error('Error fetching data:', error);
     }
 };
+
+
+const renderLikedPetImage = (imgUrl) =>{
+
+    const finalDiv = `<div class="flex justify-center items-center p-1 border border-gray-400 rounded-2xl h-fit">
+                        <img src="${imgUrl}" class="rounded-xl" alt="">
+                    </div>`
+
+    const likedParentContainer = document.getElementById('liked-images-container')
+    likedParentContainer.innerHTML += finalDiv;
+}
 
