@@ -207,7 +207,7 @@ const renderLikedPetImage = (imgUrl) => {
 const functionForActiveCategory = (e) => {
     const categoryList = document.getElementsByClassName('category-cards');
     console.log(e)
-    
+
 
     // Convert HTMLCollection to an array using Array.from()
     Array.from(categoryList).forEach(card => {
@@ -216,9 +216,36 @@ const functionForActiveCategory = (e) => {
         // card.classList('class1', 'class2', 'class3');
         card.style.removeProperty('border-radius')
         card.style.removeProperty('background-color')
+        card.style.removeProperty('border')
     });
 
-    e.style.backgroundColor="green";
-    e.style.borderRadius="60px";
+    e.style.backgroundColor = "#0E7A811A";
+    e.style.border = "1px solid #0E7A81";
+    e.style.borderRadius = "120px";
+
+}
+
+// function for sorting with price
+const sortByPriceInDescendingOrder = () => {
+    // const sortedPetsData = petData.sort((a, b) => console.log(a.pet_name,b.pet_name));
+    const sortedPetsData = petData.sort((a, b) => b.price - a.price);
+    // console.log(sortedPetsData);
+
+    // Set the sorted data in petData variable
+    petData = sortedPetsData;
+
+    // Call the showLoader function and set it true
+    loading = true;
+    showLoader(loading);
     
+    
+    
+    // Call the petData rendering function
+    setTimeout(() => {
+        loading = false;
+        showLoader(loading);
+
+        renderPetData();
+    }, 2000);
+
 }

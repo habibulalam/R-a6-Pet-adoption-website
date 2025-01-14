@@ -12,6 +12,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
 <body>
     <header class="max-w-[1320px] w-[90%] mx-auto ">
         <!-- Nav bar -->
@@ -57,9 +64,9 @@
                 </p>
 
                 <!-- Btn -->
-                <button
+                <a href="#service"
                     class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">View
-                    More</button>
+                    More</a>
             </div>
             <!-- banner img container -->
             <div class="flex justify-center items-center">
@@ -69,7 +76,7 @@
     </header>
 
     <!-- Main -->
-    <main class="max-w-[1320px] w-[90%] mx-auto ">
+    <main id="service" class="max-w-[1320px] w-[90%] mx-auto ">
         <!-- Adopt your best friend Section-->
         <section>
             <!-- Heading and title Container-->
@@ -99,7 +106,7 @@
             <!-- Filter button and title -->
             <div class="flex justify-between items-center mb-8">
                 <h1 class="text-2xl font-black">Best Deal Foy you</h1>
-                <button
+                <button onclick="sortByPriceInDescendingOrder()"
                     class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">Sort
                     By Price</button>
             </div>
