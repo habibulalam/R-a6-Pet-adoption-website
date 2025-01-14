@@ -146,7 +146,7 @@ const renderPetData = () => {
                              <!-- Buttons (adopt , details, like) -->
                               <div class="flex justify-between items-center">
                                  <button onclick="renderLikedPetImage('${singleData.image}')" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
-                                 <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Adopt</button>
+                                 <button onclick="adoptionCountDown(this)" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Adopt</button>
                                  <button onclick="showDetailsModalFunction('${singleData.petId}')" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Details</button>
                               </div>
                  </div>`
@@ -261,7 +261,7 @@ const showDetailsModalFunction = (data) => {
     // final div for modal
     const modalDiv = `<dialog id="my_modal_5" class="modal modal-middle">
             <!-- <div class="bg-white rounded-xl p-5 overflow-y-scroll h-[700px]"> -->
-            <div class="modal-box">
+            <div class="modal-box lg:w-[50%] lg:max-w-3xl md:w-[80%] ">
                 <!-- Content -->
                 <div class=" p-6 rounded-md shadow-md bg-white border">
                     <div class="h-full w-full">
@@ -295,7 +295,7 @@ const showDetailsModalFunction = (data) => {
                             </div>
                             <!-- Gender -->
                             <div class="flex gap-2 items-center text-[#131313B3] mb-2">
-                                <img src="./images/gender-icon.png" alt="">
+                                <i class="fa-solid fa-virus"></i>
                                 <p><span class="font-medium">Vaccinated status : </span> ${filterClickedData.vaccinated_status}</p>
                             </div>
                         </div>
@@ -327,3 +327,35 @@ const showDetailsModalFunction = (data) => {
 
     my_modal_5.showModal();
 }
+
+// function for adoption countdown
+const adoptionCountDown = (btn) => {
+    // console.log(btn);
+
+    // Open the modal
+    my_modal_1.showModal();
+
+    // disable the button
+    btn.disabled=true
+    btn.textContent= "Processing...";
+    
+    let countdown = 3; // Use let instead of const for a mutable countdown variable
+    
+    const countDownTimerId = document.getElementById('count-down-timer');
+    countDownTimerId.innerHTML = '<span class="loading loading-dots loading-lg"></span>'; // Update the timer text in the modal
+
+    // Update the timer every second and close the modal when countdown reaches 0
+    const interval = setInterval(() => {
+        countDownTimerId.textContent = countdown; // Update the timer text in the modal
+        countdown--; // Decrement countdown
+
+        // When countdown finishes, close the modal and clear the interval
+        if (countdown < 0) {
+            my_modal_1.close();
+            
+            // set button text to adopted
+            btn.textContent= 'Adopted';
+            clearInterval(interval);
+        }
+    }, 1000);
+};
