@@ -147,7 +147,7 @@ const renderPetData = () => {
                               <div class="flex justify-between items-center">
                                  <button onclick="renderLikedPetImage('${singleData.image}')" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]"><i class="fa-regular fa-thumbs-up"></i></button>
                                  <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Adopt</button>
-                                 <button onclick="" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Details</button>
+                                 <button onclick="showDetailsModalFunction('${singleData.petId}')" class="btn bg-white text-[#0E7A81] hover:text-white hover:bg-[#0E7A81] hover:border-[#0E7A81]">Details</button>
                               </div>
                  </div>`
     })
@@ -237,9 +237,9 @@ const sortByPriceInDescendingOrder = () => {
     // Call the showLoader function and set it true
     loading = true;
     showLoader(loading);
-    
-    
-    
+
+
+
     // Call the petData rendering function
     setTimeout(() => {
         loading = false;
@@ -248,4 +248,82 @@ const sortByPriceInDescendingOrder = () => {
         renderPetData();
     }, 2000);
 
+}
+
+// function for showing details modal
+const showDetailsModalFunction = (data) => {
+    console.log(data);
+
+    const filterClickedData = petData.find(singleData => singleData.petId == data)
+    // console.log(filterClickedData);
+    // console.log(filterClickedData.category);
+
+    // final div for modal
+    const modalDiv = `<dialog id="my_modal_5" class="modal modal-middle">
+            <!-- <div class="bg-white rounded-xl p-5 overflow-y-scroll h-[700px]"> -->
+            <div class="modal-box">
+                <!-- Content -->
+                <div class=" p-6 rounded-md shadow-md bg-white border">
+                    <div class="h-full w-full">
+                        <img src="${filterClickedData.image}" alt="image of ${filterClickedData.pet_name}"
+                            class="w-full h-full rounded-md border dark:bg-gray-500">
+                    </div>
+                    <!-- Text and info container -->
+                    <div class="mt-6 mb-2">
+                        <h1 class="text-2xl font-bold tracking-wide mb-3">${filterClickedData.pet_name}</h1>
+                        <!-- Info container -->
+                        <div class="grid gap-x-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                            <!-- Breed -->
+                            <div class="flex gap-2 items-center text-[#131313B3] mb-2">
+                                <img src="./images/bredd-icon.png" alt="">
+                                <p><span class="font-medium">Breed : </span> ${filterClickedData.breed ? filterClickedData.breed : 'Not Available'}</p>
+                            </div>
+                            <!-- Birth -->
+                            <div class="flex gap-2 items-center text-[#131313B3] mb-2">
+                                <img src="./images/birth-icon.png" alt="">
+                                <p><span class="font-medium">Birth : </span> ${filterClickedData.date_of_birth}</p>
+                            </div>
+                            <!-- Gender -->
+                            <div class="flex gap-2 items-center text-[#131313B3] mb-2">
+                                <img src="./images/gender-icon.png" alt="">
+                                <p><span class="font-medium">Gender : </span> ${filterClickedData.gender}</p>
+                            </div>
+                            <!-- Price -->
+                            <div class="flex gap-2 items-center text-[#131313B3] mb-2">
+                                <img src="./images/price-icon.png" alt="">
+                                <p><span class="font-medium">Price : </span> ${filterClickedData.price}</p>
+                            </div>
+                            <!-- Gender -->
+                            <div class="flex gap-2 items-center text-[#131313B3] mb-2">
+                                <img src="./images/gender-icon.png" alt="">
+                                <p><span class="font-medium">Vaccinated status : </span> ${filterClickedData.vaccinated_status}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <!-- Details info container -->
+                    <div>
+                        <h1 class="text-[#131313] font-semibold">Details Information</h1>
+                        <p class="max-w-[630px]">${filterClickedData.pet_details}</p>
+                    </div>
+
+                    <!-- Cancel btn -->
+                    <div class="modal-action">
+                        <form method="dialog" class="w-full">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn w-full bg-[#0E7A811A] text-[#0E7A81]">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </dialog>`
+
+        console.log(modalDiv);
+
+    const getParentModalDiv = document.getElementById('dynamic-modal-section')
+    getParentModalDiv.innerHTML = modalDiv;
+
+    my_modal_5.showModal();
 }
