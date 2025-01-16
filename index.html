@@ -104,17 +104,17 @@
         <!-- Filter button and dynamic card section -->
         <section class="mb-10">
             <!-- Filter button and title -->
-            <div class="flex justify-between items-center mb-8">
-                <h1 class="text-2xl font-black">Best Deal Foy you</h1>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <h1 class="text-2xl font-black mb-3">Best Deal Foy you</h1>
                 <button onclick="sortByPriceInDescendingOrder()"
                     class="btn bg-[#0E7A81] text-white hover:text-[#0E7A81] hover:bg-[#0e798123] hover:border-[#0E7A81]">Sort
                     By Price</button>
             </div>
 
             <!-- Dynamic card container -->
-            <div class="flex gap-6">
+            <div class="flex flex-col md:flex-col lg:flex-row gap-6 ">
                 <!-- Left side container -->
-                <div class="w-[80%] h-[500px] overflow-y-scroll border rounded-2xl border-gray-200 p-2">
+                <div class="w-[100%] md:w-[100%] lg:w-[80%] h-[500px] overflow-y-scroll border rounded-2xl border-gray-200 p-2">
                     <!-- Loader -->
                     <div id="loader" class="hidden text-center">
                         <span class="loading loading-bars loading-lg"></span>
@@ -130,7 +130,7 @@
                         </div>
 
                         <!-- Cards Container -->
-                        <div id="pet-card-container" class="grid grid-cols-3 gap-6">
+                        <div id="pet-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-6">
                             <!-- Cards -->
 
                         </div>
@@ -139,7 +139,7 @@
 
                 <!-- Right side container -->
                 <div id="liked-images-container"
-                    class="grid grid-cols-2 content-start gap-4  border rounded-2xl border-gray-200 w-[20%] h-[500px] overflow-y-scroll p-2">
+                    class="grid grid-cols-2 content-start gap-4  border rounded-2xl border-gray-200 w-[100%] md:w-[100%] lg:w-[20%]  h-[500px] overflow-y-scroll p-2">
                     <!-- Liked items -->
                     <!-- <div class="flex justify-center items-center border border-gray-400 p-2 rounded-2xl h-fit">
                         <img src="./images/cat-tag.png" alt="">
@@ -177,16 +177,16 @@
     <!-- Footer -->
     <footer class="bg-[#131313]">
         <!-- Footer contianer -->
-        <div class="max-w-[1320px] w-[90%] flex justify-between mx-auto py-28">
+        <div class="max-w-[1320px] w-[90%] flex flex-col md:flex-row lg:flex-row gap-20 items-center md:items-start justify-between mx-auto py-28">
             <!-- Logo and info container -->
-            <div>
+            <div class="flex flex-col items-center md:items-start lg:items-start">
                 <!-- Logo -->
                 <div class="cursor-pointer flex gap-2 items-center text-white mb-6">
                     <img src="./images/logo.webp" alt="">
                     <h1 class="text-3xl font-black">Peddy</h1>
                 </div>
                 <!-- info -->
-                <div class="text-white space-y-5 mb-4">
+                <div class="text-white space-y-5 mb-4 text-center md:text-start lg:text-start">
                     <p>Location: av. Washington 165, NY CA 54003</p>
                     <p>Phone: +31 85 964 47 25</p>
                     <p>Email: info@yourdomain.com</p>
@@ -223,7 +223,7 @@
                 <h1 class="text-white text-lg font-bold mb-6">Drop a message</h1>
                 <div class="flex flex-col gap-4">
                     <input type="text" class="px-4 py-3 rounded-xl bg-[#FFFFFF0D]" placeholder="Enter your email">
-                    <button class="btn bg-[#0E7A81] text-white text-xl font-bold border border-[#0E7A81] hover:border-[#0E7A81] hover:text-[#0E7A81] hover:bg-[#131313]">Subscribe</button>
+                    <button class="btn bg-[#0E7A81] text-white text-xl font-bold border border-[#0E7A81] hover:border-[#0E7A81] hover:text-[#0E7A81] hover:bg-[#131313g]">Subscribe</button>
                 </div>
             </div>
         </div>

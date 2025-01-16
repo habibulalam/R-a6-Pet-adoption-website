@@ -156,7 +156,7 @@ const renderPetData = () => {
 
     const petDataContainer = document.getElementById("error-card-parent-container")
     // console.log(object);
-    const finalAllCardParentDiv = `<div id="pet-card-container" class="grid grid-cols-3 gap-6">
+    const finalAllCardParentDiv = `<div id="pet-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-6">
                                             ${finalAllCartDiv.join('')}
                                         </div>`
 
