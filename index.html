@@ -160,12 +160,13 @@
             <!-- Container -->
             <div>
                 <!-- Open the modal using ID.showModal() method -->
-                <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
                 <dialog id="my_modal_1" class="modal">
                     <div class="modal-box">
-                        <h3 class="text-5xl font-bold text-center text-[#0E7A81]"><i class="fa-solid fa-handshake fa-bounce"></i></h3>
+                        <h3 class="text-5xl font-bold text-center text-[#0E7A81]"><i
+                                class="fa-solid fa-handshake fa-bounce"></i></h3>
                         <h1 class="py-4 text-3xl font-bold text-center">Congrats</h1>
-                        <p class="text-center text-lg font-medium mb-4">Adoption process for your pet starting in ...</p>
+                        <p class="text-center text-lg font-medium mb-4">Adoption process for your pet starting in ...
+                        </p>
                         <p id="count-down-timer" class="text-center text-6xl font-semibold">...</p>
                     </div>
                 </dialog>
@@ -174,10 +175,58 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <!-- Open the modal using ID.showModal() method -->
-        <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+    <footer class="bg-[#131313]">
+        <!-- Footer contianer -->
+        <div class="max-w-[1320px] w-[90%] flex justify-between mx-auto py-28">
+            <!-- Logo and info container -->
+            <div>
+                <!-- Logo -->
+                <div class="cursor-pointer flex gap-2 items-center text-white mb-6">
+                    <img src="./images/logo.webp" alt="">
+                    <h1 class="text-3xl font-black">Peddy</h1>
+                </div>
+                <!-- info -->
+                <div class="text-white space-y-5 mb-4">
+                    <p>Location: av. Washington 165, NY CA 54003</p>
+                    <p>Phone: +31 85 964 47 25</p>
+                    <p>Email: info@yourdomain.com</p>
+                    <p>Openings hours: 9.00 AM - 5.00 PM</p>
+                </div>
 
+                <!-- Icons -->
+                <div class="flex gap-6">
+                    <p><i class="fa-brands fa-facebook text-[#1877F2] text-4xl"></i></p>
+                    <p><i class="fa-brands fa-x-twitter text-white text-4xl"></i></p>
+                    <p><i class="fa-brands fa-youtube text-[#FF0000] text-4xl"></i></p>
+                    <p><i
+                            class="fa-brands fa-instagram text-transparent bg-gradient-to-br from-[#f58529] via-[#dd2a7b] to-[#8134af] bg-clip-text text-4xl"></i>
+                    </p>
+                </div>
+
+
+            </div>
+
+            <!-- Useful links container -->
+            <div>
+                <h1 class="text-white text-lg font-bold mb-6">Useful Links</h1>
+                <ul class="text-[#FFFFFF99] space-y-5">
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Animals</li>
+                    <li>Foundation</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+
+            <!-- Drop message container -->
+            <div>
+                <h1 class="text-white text-lg font-bold mb-6">Drop a message</h1>
+                <div class="flex flex-col gap-4">
+                    <input type="text" class="px-4 py-3 rounded-xl bg-[#FFFFFF0D]" placeholder="Enter your email">
+                    <button class="btn bg-[#0E7A81] text-white text-xl font-bold border border-[#0E7A81] hover:border-[#0E7A81] hover:text-[#0E7A81] hover:bg-[#131313]">Subscribe</button>
+                </div>
+            </div>
+        </div>
     </footer>
 
 
